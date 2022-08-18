@@ -1,9 +1,9 @@
 import os
 
-ACNH_TWEET_DATA = f"{os.getcwd()}\API\static\\fullCalendar.json"
-ACNH_NAMES_DATA = f"{os.getcwd()}\API\static\\fullNameDictionary.json"
-ACNH_VILLAGER_DATA = f"{os.getcwd()}\API\static\\fullVillagerData.json"
-ACNH_CREATURE_DATA = f"{os.getcwd()}\API\static\\fullCreatureData.json"
-ACNH_DB = f"{os.getcwd()}\API\static\\ACNHData.db"
+ACNH_TWEET_DATA = os.getenv("ACNH_TWEET_DATA", None)
+ACNH_NAMES_DATA = os.getenv("ACNH_NAMES_DATA", None)
+ACNH_VILLAGER_DATA = os.getenv("ACNH_VILLAGER_DATA", None)
+ACNH_CREATURE_DATA = os.getenv("ACNH_CREATURE_DATA", None)
+ACNH_DB = os.getenv("ACNH_DB", None)
 LEAVING, JOINING = 0, 1
 NORTH, SOUTH = 0, 1
