@@ -16,4 +16,4 @@ RUN apt update
 
 RUN pip install -r requirements.txt
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["uvicorn", "app:server", "--host", "0.0.0.0", "--port", "5000"]
