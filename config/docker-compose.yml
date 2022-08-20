@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  acnhapi:
+    build:
+      context: $PWD
+      args:
+        PYTHON_VERSION: "3.9"
+    image: acnhapi:v2.0.0
+    container_name: acnhapi
+    ports:
+      - "5000:5000"
+    environment:
+      - ACNH_TWEET_DATA=./API/static/fullCalendar.json
+      - ACNH_NAMES_DATA=./API/static/fullNameDictionary.json
+      - ACNH_VILLAGER_DATA=./API/static/fullVillagerData.json
+      - ACNH_CREATURE_DATA=./API/static/fullCreatureData.json
