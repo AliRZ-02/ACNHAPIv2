@@ -164,7 +164,10 @@ async def get_data_by_name(name: str, type: str):
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------
 # Return Tweet Data
-async def get_tweets(date: Date) -> List[str]:
+async def get_tweets(date: Date, hemispheresWanted=None) -> List[str]:
+    if hemispheresWanted is None:
+        hemispheresWanted = [NORTH, SOUTH]
+
     tweets = []
 
     async with ClientSession() as session:
@@ -172,6 +175,7 @@ async def get_tweets(date: Date) -> List[str]:
         for group, ids in to_search.items():
             mode, hemisphere, hemisphereString = get_tweet_data_tuple(group, date)
             for id in ids:
-                tweets.append(await generate_tweet(session, SearchInput(group.replace(hemisphereString, ''), id), date.month, hemisphere, mode))
+                if hemisphere in hemispheresWanted:
+                    tweets.append(await generate_tweet(session, SearchInput(group.replace(hemisphereString, ''), id), date.month, hemisphere, mode))
     
     return tweets

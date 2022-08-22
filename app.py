@@ -1,4 +1,4 @@
-from API import get_date_from_id, get_tweets, get_filter_fn, get_data_by_name, get_villagers_by_birthday, get_villagers_by_trait, get_ranged_data_query, get_creatures_by_trait, generate_output, Date
+from API import get_date_from_id, get_tweets, get_filter_fn, get_data_by_name, get_villagers_by_birthday, get_villagers_by_trait, get_ranged_data_query, get_creatures_by_trait, generate_output, Date, NORTH, SOUTH
 from fastapi import FastAPI, HTTPException
 from datetime import datetime
 
@@ -21,6 +21,25 @@ async def return_tweets_today():
     try:
         today = Date(dateObj=datetime.today())
         return generate_output("tweets", await get_tweets(today), today)
+    except:
+        raise HTTPException(status_code=ERROR, detail=f"Error in generating today's tweets")
+
+@server.get("/tweets/today/villagers")
+async def return_villager_tweets_today():
+    try:
+        today = Date(dateObj=datetime.today())
+        data = list(filter(get_filter_fn("villagers"), await get_tweets(today)))
+        return generate_output("tweets", data, today, page_size=None, page=None, params=None)
+    except:
+        raise HTTPException(status_code=ERROR, detail=f"Error in generating tweets for type '{type}' on day '{id}'")
+
+@server.get("/tweets/today/{hemisphere}")
+async def return_hemisphere_tweets_today(hemisphere: str):
+    hemispheresWanted = [NORTH] if hemisphere.lower().strip() == "North" else [SOUTH]
+    try:
+        fn = lambda tweet: not get_filter_fn("villagers")(tweet)
+        today = Date(dateObj=datetime.today())
+        return generate_output("tweets", list(filter(fn, await get_tweets(today, hemispheresWanted))), today)
     except:
         raise HTTPException(status_code=ERROR, detail=f"Error in generating today's tweets")
 
