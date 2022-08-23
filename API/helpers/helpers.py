@@ -15,7 +15,7 @@ def generate_output(type: str, data: Iterable, date: Date, page_size: int = None
         "queryInfo": {
             "type": type,
             "page": 1 if page is None else page,
-            "page_size": len(data) if page_size is None else page_size,
+            "page_size": len(data),
             "params": params,
             "date": date.as_dict()
         },
