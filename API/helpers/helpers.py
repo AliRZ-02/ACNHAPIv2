@@ -133,12 +133,12 @@ async def get_ranged_data_query(type: str, trait: str, value1: str, value2: str)
 # -------------------------------------------------------------------------------------------------------------------------------------------------
 # Return Creature Data
 async def get_creatures_by_trait(type: str, trait: str, value: str, page_size: int, page: int):
-    return ranged_trait_search(type, page_size, page, ACNHCreatureDataSearch(ACNH_CREATURE_DATA, type, trait, value).get_data)
+    return await ranged_trait_search(type, page_size, page, ACNHCreatureDataSearch(ACNH_CREATURE_DATA, type, trait, value).get_data)
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------
 # Return Villager Data
 async def get_villagers_by_trait(trait: str, value: str, page_size: int, page: int):
-    return ranged_trait_search("villagers", page_size, page, ACNHVillagerDataSearch(ACNH_VILLAGER_DATA, trait, value).get_data)
+    return await ranged_trait_search("villagers", page_size, page, ACNHVillagerDataSearch(ACNH_VILLAGER_DATA, trait, value).get_data)
 
 async def get_villagers_by_birthday(month: int, day: int):
     data = []
