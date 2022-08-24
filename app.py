@@ -119,7 +119,7 @@ async def return_creature_range_search(type: str, trait: str, value1: str, value
     try:
         data = await get_ranged_data_query(type, trait, value1, value2)
         date = Date(dateObj=datetime.today())
-        params = {"type": type, "{trait}": f"{value1}-{value2}"}
+        params = {"type": type, f"{trait}": f"{value1}-{value2}"}
         return generate_output("info", data, date, page_size=None, page=None, params=params)
     except:
         raise HTTPException(status_code=ERROR, detail=f"Error in generating data for creatures of type '{type}' with trait '{trait}' and values between '{value1}' & '{value2}")
