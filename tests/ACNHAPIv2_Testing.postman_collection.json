@@ -1,0 +1,3219 @@
+{
+	"info": {
+		"_postman_id": "e6f62009-2a1b-43ec-9cdc-cf0b1193db80",
+		"name": "ACNHAPIv2Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19903813"
+	},
+	"item": [
+		{
+			"name": "TweetTesting",
+			"item": [
+				{
+					"name": "TodayTweetTesting",
+					"item": [
+						{
+							"name": "TodayTweetTesting",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"TweetDailyTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var queryInfo = jsonData.queryInfo\r",
+											"    var year = pm.environment.get(\"currentYear\")\r",
+											"    var month = pm.environment.get(\"currentMonth\")\r",
+											"    var day = pm.environment.get(\"currentDay\")\r",
+											"    pm.expect(queryInfo.page_size).to.be.a(\"number\")\r",
+											"    pm.expect(queryInfo.date.year).to.eql(parseInt(year))\r",
+											"    pm.expect(queryInfo.date.month).to.eql(parseInt(month))\r",
+											"    pm.expect(queryInfo.date.date).to.eql(parseInt(day))\r",
+											"    pm.expect(queryInfo.params).to.eql(null)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/tweets/today",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"tweets",
+										"today"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TodayVillagerTweets",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"TweetDailyTest - Villager\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var queryInfo = jsonData.queryInfo\r",
+											"    var year = pm.environment.get(\"currentYear\")\r",
+											"    var month = pm.environment.get(\"currentMonth\")\r",
+											"    var day = pm.environment.get(\"currentDay\")\r",
+											"    pm.expect(queryInfo.page_size).to.be.a(\"number\")\r",
+											"    pm.expect(queryInfo.date.year).to.eql(parseInt(year))\r",
+											"    pm.expect(queryInfo.date.month).to.eql(parseInt(month))\r",
+											"    pm.expect(queryInfo.date.date).to.eql(parseInt(day))\r",
+											"    pm.expect(queryInfo.params).to.eql(null)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/tweets/today/villagers",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"tweets",
+										"today",
+										"villagers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TodayNorthTweets",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"TweetDailyTest - North\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var queryInfo = jsonData.queryInfo\r",
+											"    var year = pm.environment.get(\"currentYear\")\r",
+											"    var month = pm.environment.get(\"currentMonth\")\r",
+											"    var day = pm.environment.get(\"currentDay\")\r",
+											"    pm.expect(queryInfo.page_size).to.be.a(\"number\")\r",
+											"    pm.expect(queryInfo.date.year).to.eql(parseInt(year))\r",
+											"    pm.expect(queryInfo.date.month).to.eql(parseInt(month))\r",
+											"    pm.expect(queryInfo.date.date).to.eql(parseInt(day))\r",
+											"    pm.expect(queryInfo.params).to.eql(null)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/tweets/today/North",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"tweets",
+										"today",
+										"North"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TodaySouthTweets",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"TweetDailyTest - South\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var queryInfo = jsonData.queryInfo\r",
+											"    var year = pm.environment.get(\"currentYear\")\r",
+											"    var month = pm.environment.get(\"currentMonth\")\r",
+											"    var day = pm.environment.get(\"currentDay\")\r",
+											"    pm.expect(queryInfo.page_size).to.be.a(\"number\")\r",
+											"    pm.expect(queryInfo.date.year).to.eql(parseInt(year))\r",
+											"    pm.expect(queryInfo.date.month).to.eql(parseInt(month))\r",
+											"    pm.expect(queryInfo.date.date).to.eql(parseInt(day))\r",
+											"    pm.expect(queryInfo.params).to.eql(null)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/tweets/today/South",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"tweets",
+										"today",
+										"South"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GivenDateTweetTesting",
+					"item": [
+						{
+							"name": "Filtered",
+							"item": [
+								{
+									"name": "FilteredVillagerTweet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"VillagerTweetIDTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"villagers\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(1)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/tweets/villagers/1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"tweets",
+												"villagers",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FilteredBugsTweet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"BugsTweetIDTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(21)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/tweets/bugs/1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"tweets",
+												"bugs",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FilteredFishTweet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"FishTweetIDTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(5)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/tweets/fish/1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"tweets",
+												"fish",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FilteredSeaTweet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"SeaTweetIDTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(3)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/tweets/sea/1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"tweets",
+												"sea",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Unfiltered",
+							"item": [
+								{
+									"name": "TweetUnfilteredTesting",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"TweetIDTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.data.length).to.eql(30)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/tweets/1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"tweets",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"TweetDateTest\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var queryInfo = jsonData.queryInfo",
+									"    pm.expect(queryInfo.date.year).to.eql(2020)",
+									"    pm.expect(queryInfo.date.month).to.eql(1)",
+									"    pm.expect(queryInfo.date.date).to.eql(1)",
+									"    pm.expect(parseInt(queryInfo.params.id)).to.eql(1)",
+									"});"
+								]
+							}
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"TweetBasicTest\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var queryInfo = jsonData.queryInfo",
+							"    pm.expect(queryInfo.type).to.eql(\"tweets\");",
+							"    pm.expect(queryInfo.page).to.eql(1)",
+							"    pm.expect(queryInfo.page_size).to.be.a(\"number\")",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "VillagerDataTesting",
+			"item": [
+				{
+					"name": "BirthdayTesting",
+					"item": [
+						{
+							"name": "Jan1stTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Jan1stBirthdayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.params.birthMonth).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.params.birthDate).to.eql(1)\r",
+											"    pm.expect(jsonData.data.length).to.eql(1)\r",
+											"    pm.expect(jsonData.data[0].name.USen).to.eql(\"Bob\")\r",
+											"    pm.expect(jsonData.data[0].birthday.month).to.eql('1')\r",
+											"    pm.expect(jsonData.data[0].birthday.date).to.eql('1')\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/birthday/1-1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"birthday",
+										"1-1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Feb29Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Feb29BirthdayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.params.birthMonth).to.eql(2)\r",
+											"    pm.expect(jsonData.queryInfo.params.birthDate).to.eql(29)\r",
+											"    pm.expect(jsonData.data.length).to.eql(0)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/birthday/2-29",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"birthday",
+										"2-29"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "August14Test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Aug14thBirthdayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.params.birthMonth).to.eql(8)\r",
+											"    pm.expect(jsonData.queryInfo.params.birthDate).to.eql(14)\r",
+											"    pm.expect(jsonData.data.length).to.eql(2)\r",
+											"    pm.expect(jsonData.data[0].name.USen).to.eql(\"Leopold\")\r",
+											"    pm.expect(jsonData.data[1].name.USen).to.eql(\"Rod\")\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/birthday/8-14",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"birthday",
+										"8-14"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TraitTesting",
+					"item": [
+						{
+							"name": "PersonalityTest - Cranky",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CrankyTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Cranky\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(16)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(18)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(29)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(36)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(39)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(41)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Cranky",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Cranky"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Jock",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"JockTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Jock\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(23)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(27)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(34)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(35)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(40)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(52)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(55)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(62)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Jock",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Jock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Lazy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"LazyTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Lazy\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(12)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(25)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(31)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(37)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(38)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(42)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(48)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(50)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(68)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(70)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Lazy",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Lazy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Smug",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SmugTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Smug\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(20)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(21)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(32)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(33)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(64)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(89)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(103)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(106)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(126)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Smug",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Smug"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Peppy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"PeppyTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Peppy\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(14)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(26)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(28)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(44)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(47)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(54)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(58)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Peppy",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Peppy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Uchi",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"UchiTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Uchi\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(15)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(17)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(19)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(63)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(79)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(86)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(105)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(107)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(125)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(171)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Uchi",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Uchi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Snooty",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SnootyTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Snooty\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(24)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(45)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(49)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(53)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(56)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(61)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(80)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(85)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(88)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Snooty",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Snooty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PersonalityTest - Normal",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"NormalTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality).to.eql(\"Normal\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(22)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(30)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(43)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(46)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(60)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(66)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(73)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(75)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(76)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality/Normal",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality",
+										"Normal"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SpeciesTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SpeciesTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(3)\r",
+											"    pm.expect(jsonData.queryInfo.params.species).to.eql(\"Octopus\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(3)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(267)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(268)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(269)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/species/Octopus",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"species",
+										"Octopus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GenderTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"GenderTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.gender).to.eql(\"Male\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(12)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(16)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/gender/Male",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"gender",
+										"Male"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SubtypeTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SubtypeTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.personality_and_subtype).to.eql(\"Cranky-B\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(16)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(36)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(39)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(51)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(57)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(71)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(87)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/personality_and_subtype/Cranky-B",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"personality_and_subtype",
+										"Cranky-B"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "HobbyTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"HobbyTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.hobby).to.eql(\"Education\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(16)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(20)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(21)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(30)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(39)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(43)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(46)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/villagers/hobby/Education",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"villagers",
+										"hobby",
+										"Education"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"VillagerDataBasicTest\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var queryInfo = jsonData.queryInfo",
+							"    pm.expect(queryInfo.type).to.eql(\"info\");",
+							"    pm.expect(queryInfo.page).to.be.a(\"number\")",
+							"    pm.expect(queryInfo.page_size).to.be.a(\"number\")",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CreatureDataTesting",
+			"item": [
+				{
+					"name": "BugsTesting",
+					"item": [
+						{
+							"name": "TimeSearch",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugTimeTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.time).to.eql(\"0\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(14)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(20)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(21)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(25)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(31)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(35)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(36)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(37)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/time/0",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"time",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LocationSearch",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugLocationTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.location).to.eql(\"Flying\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(11)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/location/Flying",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"location",
+										"Flying"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NorthMonthTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugNorthMonthTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.monthsNorth).to.eql(\"1\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(25)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(35)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(37)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(47)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(50)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/monthsNorth/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"monthsNorth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SouthMonthTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugSouthMonthTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.monthsSouth).to.eql(\"1\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(12)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(14)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/monthsSouth/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"monthsSouth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RarityTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugRarityTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(8)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.rarity).to.eql(\"Rare\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(8)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(12)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(31)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(34)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(40)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(52)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(57)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(58)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/rarity/Rare",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"rarity",
+										"Rare"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PriceTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugPriceTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(3)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.price).to.eql(\"160\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(3)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(19)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/price/160",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"price",
+										"160"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PriceTest - Flick",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugPrice_FlickTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(3)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.price_flick).to.eql(\"240\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(3)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(19)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/price_flick/240",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"price_flick",
+										"240"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllDayTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugAllDayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.isAllDay).to.eql(\"True\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(25)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(31)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(35)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(37)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(41)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(44)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(45)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(46)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(47)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(48)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/isAllDay/True",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"isAllDay",
+										"True"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllYearTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"BugAllYearTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+											"    pm.expect(jsonData.queryInfo.params.isAllYear).to.eql(\"True\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(25)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(47)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(68)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(69)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(70)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(71)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(72)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(75)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/bugs/isAllYear/True",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bugs",
+										"isAllYear",
+										"True"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FishTesting",
+					"item": [
+						{
+							"name": "TimeSearch",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishTimeTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.time).to.eql(\"0\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(12)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(13)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/time/0",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"time",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LocationSearch",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishLocationTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.location).to.eql(\"Sea\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(47)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(48)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(49)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(50)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(51)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(52)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(53)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(54)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(55)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(56)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/location/Sea",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"location",
+										"Sea"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NorthMonthTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishNorthMonthTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.monthsNorth).to.eql(\"1\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(16)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/monthsNorth/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"monthsNorth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SouthMonthTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishSouthMonthTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.monthsSouth).to.eql(\"1\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(11)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/monthsSouth/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"monthsSouth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RarityTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishRarityTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.rarity).to.eql(\"Rare\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(19)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(40)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(41)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(43)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(44)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(52)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(66)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(67)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(69)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(72)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/rarity/Rare",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"rarity",
+										"Rare"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PriceTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishPriceTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.price).to.eql(\"160\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(1)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(3)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/price/160",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"price",
+										"160"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PriceTest - Cj",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishPriceCjTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.price_cj).to.eql(\"240\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(1)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(3)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/price_cj/240",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"price_cj",
+										"240"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllDayTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishAllDayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.isAllDay).to.eql(\"True\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(14)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(15)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(17)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(21)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/isAllDay/True",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"isAllDay",
+										"True"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllYearTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishAllYearTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.isAllYear).to.eql(\"True\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(16)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(20)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/isAllYear/True",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"isAllYear",
+										"True"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ShadowTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"FishShadowTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+											"    pm.expect(jsonData.queryInfo.params.shadow).to.eql(\"Large\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(19)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(24)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(30)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(42)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(43)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(59)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(62)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(68)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(69)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/fish/shadow/Large",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"shadow",
+										"Large"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SeaTesting",
+					"item": [
+						{
+							"name": "TimeSearch",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaTimeTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.time).to.eql(\"0\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(10)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/time/0",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"time",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NorthMonthTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaNorthMonthTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.monthsNorth).to.eql(\"1\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(4)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(13)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(14)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(15)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/monthsNorth/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"monthsNorth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SouthMonthTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaSouthMonthTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.monthsSouth).to.eql(\"1\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(7)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(12)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/monthsSouth/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"monthsSouth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SpeedTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaSpeedTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(5)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.speed).to.eql(\"Fast\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(5)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(21)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(26)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(33)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(34)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(40)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/speed/Fast",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"speed",
+										"Fast"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PriceTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaPriceTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(3)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.price).to.eql(\"500\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(3)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(8)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/price/500",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"price",
+										"500"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllDayTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaAllDayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.isAllDay).to.eql(\"True\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(10)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(2)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(3)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(6)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(9)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[9].id).to.eql(12)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/isAllDay/True",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"isAllDay",
+										"True"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AllYearTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaAllYearTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(9)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.isAllYear).to.eql(\"True\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(9)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(5)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(10)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(11)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(14)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(15)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(20)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(28)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(32)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/isAllYear/True",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"isAllYear",
+										"True"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ShadowTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"SeaShadowTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(6)\r",
+											"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+											"    pm.expect(jsonData.queryInfo.params.shadow).to.eql(\"Large\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(6)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(1)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(8)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(26)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(27)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(33)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(34)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/sea/shadow/Large",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"sea",
+										"shadow",
+										"Large"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"CreatureDataBasicTest\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var queryInfo = jsonData.queryInfo",
+							"    pm.expect(queryInfo.type).to.eql(\"info\");",
+							"    pm.expect(queryInfo.page).to.be.a(\"number\")",
+							"    pm.expect(queryInfo.page_size).to.be.a(\"number\")",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "RangeDataTesting",
+			"item": [
+				{
+					"name": "VillagersTesting",
+					"item": [
+						{
+							"name": "BirthdayTest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"RangeBirthdayTest\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+											"    pm.expect(jsonData.queryInfo.page_size).to.eql(9)\r",
+											"    pm.expect(jsonData.queryInfo.params.birthdayStart).to.eql(\"1-1\")\r",
+											"    pm.expect(jsonData.queryInfo.params.birthdayEnd).to.eql(\"1-10\")\r",
+											"    pm.expect(jsonData.data.length).to.eql(9)\r",
+											"    pm.expect(jsonData.data[0].id).to.eql(42)\r",
+											"    pm.expect(jsonData.data[1].id).to.eql(67)\r",
+											"    pm.expect(jsonData.data[2].id).to.eql(128)\r",
+											"    pm.expect(jsonData.data[3].id).to.eql(109)\r",
+											"    pm.expect(jsonData.data[4].id).to.eql(290)\r",
+											"    pm.expect(jsonData.data[5].id).to.eql(333)\r",
+											"    pm.expect(jsonData.data[6].id).to.eql(203)\r",
+											"    pm.expect(jsonData.data[7].id).to.eql(282)\r",
+											"    pm.expect(jsonData.data[8].id).to.eql(324)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/range/villagers/birthday/1-1/1-10",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"range",
+										"villagers",
+										"birthday",
+										"1-1",
+										"1-10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CreatureTesting",
+					"item": [
+						{
+							"name": "BugTest",
+							"item": [
+								{
+									"name": "BugTimeTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeBugTimeTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(48)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+													"    pm.expect(jsonData.queryInfo.params.time).to.eql(\"0-1\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(48)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/bugs/time/0-1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"bugs",
+												"time",
+												"0-1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "BugMonthsNorthTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeBugsMonthsNorthTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(20)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+													"    pm.expect(jsonData.queryInfo.params.monthsNorth).to.eql(\"1-2\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(20)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/bugs/monthsNorth/1-2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"bugs",
+												"monthsNorth",
+												"1-2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "BugMonthsSouthTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeBugsMonthsSouthTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(61)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+													"    pm.expect(jsonData.queryInfo.params.monthsSouth).to.eql(\"1-2\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(61)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/bugs/monthsSouth/1-2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"bugs",
+												"monthsSouth",
+												"1-2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "BugsPriceTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeBugsPriceTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(4)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+													"    pm.expect(jsonData.queryInfo.params.price).to.eql(\"1-100\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(4)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/bugs/price/1-100",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"bugs",
+												"price",
+												"1-100"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "BugsFlickPriceTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeBugsPrice_FlickTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(2)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+													"    pm.expect(jsonData.queryInfo.params.price_flick).to.eql(\"1-100\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(2)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/bugs/price_flick/1-100",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"bugs",
+												"price_flick",
+												"1-100"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "FishTest",
+							"item": [
+								{
+									"name": "FishTimeTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeFishTimeTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(65)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+													"    pm.expect(jsonData.queryInfo.params.time).to.eql(\"0-1\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(65)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/fish/time/0-1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"fish",
+												"time",
+												"0-1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FishMonthsNorthTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeFishMonthsNorthTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(31)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+													"    pm.expect(jsonData.queryInfo.params.monthsNorth).to.eql(\"1-2\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(31)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/fish/monthsNorth/1-2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"fish",
+												"monthsNorth",
+												"1-2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FishMonthsSouthTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeFishMonthsSouthTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(58)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+													"    pm.expect(jsonData.queryInfo.params.monthsSouth).to.eql(\"1-2\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(58)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/fish/monthsSouth/1-2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"fish",
+												"monthsSouth",
+												"1-2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FishPriceTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeFishPriceTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+													"    pm.expect(jsonData.queryInfo.params.price).to.eql(\"1-100\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(1)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/fish/price/1-100",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"fish",
+												"price",
+												"1-100"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FishCJPriceTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeFishPrice_CJTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+													"    pm.expect(jsonData.queryInfo.params.price_cj).to.eql(\"1-150\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(1)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/fish/price_cj/1-150",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"fish",
+												"price_cj",
+												"1-150"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "SeaTest",
+							"item": [
+								{
+									"name": "SeaTimeTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeSeaTimeTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(39)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+													"    pm.expect(jsonData.queryInfo.params.time).to.eql(\"0-1\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(39)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/sea/time/0-1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"sea",
+												"time",
+												"0-1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "SeaMonthsNorthTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeSeaMonthsNorthTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(20)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+													"    pm.expect(jsonData.queryInfo.params.monthsNorth).to.eql(\"1-2\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(20)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/sea/monthsNorth/1-2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"sea",
+												"monthsNorth",
+												"1-2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "SeaMonthsSouthTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeSeaMonthsSouthTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(24)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+													"    pm.expect(jsonData.queryInfo.params.monthsSouth).to.eql(\"1-2\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(24)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/sea/monthsSouth/1-2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"sea",
+												"monthsSouth",
+												"1-2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "SeaPriceTest",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"RangeSeaPriceTest\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+													"    pm.expect(jsonData.queryInfo.page_size).to.eql(3)\r",
+													"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+													"    pm.expect(jsonData.queryInfo.params.price).to.eql(\"1-500\")\r",
+													"    pm.expect(jsonData.data.length).to.eql(3)\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/range/sea/price/1-500",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"range",
+												"sea",
+												"price",
+												"1-500"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"RangeDataBasicTest\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var queryInfo = jsonData.queryInfo",
+							"    pm.expect(queryInfo.type).to.eql(\"info\");",
+							"    pm.expect(queryInfo.page).to.be.a(\"number\")",
+							"    pm.expect(queryInfo.page_size).to.be.a(\"number\")",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "NameDataTesting",
+			"item": [
+				{
+					"name": "VillagerSearch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"NameVillagerTest\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+									"    pm.expect(jsonData.queryInfo.page_size).to.eql(17)\r",
+									"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"villagers\")\r",
+									"    pm.expect(jsonData.queryInfo.params.name).to.eql(\"Cyrano\")\r",
+									"    pm.expect(jsonData.data.id).to.eql(1)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/villagers/name/Cyrano",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"villagers",
+								"name",
+								"Cyrano"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BugSearch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"NameBugsTest\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+									"    pm.expect(jsonData.queryInfo.page_size).to.eql(10)\r",
+									"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"bugs\")\r",
+									"    pm.expect(jsonData.queryInfo.params.name).to.eql(\"common-butterfly\")\r",
+									"    pm.expect(jsonData.data.id).to.eql(1)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bugs/name/common-butterfly",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bugs",
+								"name",
+								"common-butterfly"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FishSearch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"NameFishTest\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+									"    pm.expect(jsonData.queryInfo.page_size).to.eql(11)\r",
+									"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"fish\")\r",
+									"    pm.expect(jsonData.queryInfo.params.name).to.eql(\"bitterling\")\r",
+									"    pm.expect(jsonData.data.id).to.eql(1)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/fish/name/bitterling",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"fish",
+								"name",
+								"bitterling"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SeaSearch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"NameSeaTest\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.queryInfo.page).to.eql(1)\r",
+									"    pm.expect(jsonData.queryInfo.page_size).to.eql(11)\r",
+									"    pm.expect(jsonData.queryInfo.params.type).to.eql(\"sea\")\r",
+									"    pm.expect(jsonData.queryInfo.params.name).to.eql(\"seaweed\")\r",
+									"    pm.expect(jsonData.data.id).to.eql(1)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/sea/name/seaweed",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"sea",
+								"name",
+								"seaweed"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"RangeDataBasicTest\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var queryInfo = jsonData.queryInfo",
+							"    pm.expect(queryInfo.type).to.eql(\"info\");",
+							"    pm.expect(queryInfo.page).to.be.a(\"number\")",
+							"    pm.expect(queryInfo.page_size).to.be.a(\"number\")",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var moment = require('moment');",
+					"pm.environment.set('currentYear', moment().format((\"YYYY\")));",
+					"pm.environment.set('currentMonth', moment().format((\"MM\")));",
+					"pm.environment.set('currentDay', moment().format((\"DD\")));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	]
+}

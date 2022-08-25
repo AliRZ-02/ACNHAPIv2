@@ -1,0 +1,30 @@
+language: node_js
+
+node_js:
+  - 17
+
+cache:
+  directories:
+    - ~/build/AliRZ-02/ACNHAPIv2/node_modules
+
+addons:
+  apt:
+    packages:
+      - docker-ce
+
+services:
+  - docker
+
+before_install:
+  - npm root
+  - docker --version
+
+install:
+  - docker-compose -f config/docker-compose.yml up --detach
+
+before_script:
+  - npm install newman
+  - ~/build/AliRZ-02/ACNHAPIv2/node_modules/.bin/newman --version
+
+script:
+  - ~/build/AliRZ-02/ACNHAPIv2/node_modules/.bin/newman run ./tests/ACNHAPIv2_Testing.postman_collection.json -e ./tests/ACNHAPIv2_Environment.postman_environment.json
