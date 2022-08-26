@@ -16,7 +16,6 @@ jobs:
           node-version: "12.x"
       
       - name: Docker Installation
-        uses: actions/checkout@v2
         run: docker-compose -f config/docker-compose.yml up --detach
 
       - name: Newman Installation
