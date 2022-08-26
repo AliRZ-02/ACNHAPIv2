@@ -1,0 +1,36 @@
+name: Testing
+on: 
+  push:
+    branches:
+      - main
+      - testing
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+
+    - name: Node Installation
+    uses: actions/setup-node@v1
+    with: 
+      node-version: "12.x"
+    
+    - name: Docker Installation
+    uses: actions/checkout@v2
+    run: docker-compose -f config/docker-compose.yml up --detach
+
+    - name: Newman Installation
+    run: |
+      npm install -g newman
+      npm install -g newman-reporter-htmlextra
+    
+    - name: Create Results Directory
+    run: mkdir -p testingResults 
+
+    - name: Run Postman Tests
+    run: |
+      newman run ./tests/ACNHAPIv2_Testing.postman_collection.json -e ./tests/ACNHAPIv2_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export testingResults/htmlreport.html --reporter-htmlextra-darkTheme > testingResults/runreport1.html
+    
+    - name: Output Details
+    uses: actions/upload-artifact@v2
+    with:
+      name: RunReports
+      path: testingResults
