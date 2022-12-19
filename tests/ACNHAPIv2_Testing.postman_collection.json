@@ -3038,13 +3038,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/villagers/name/Cyrano",
+							"raw": "{{URL}}/names/villagers/Cyrano",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
+								"names",
 								"villagers",
-								"name",
 								"Cyrano"
 							]
 						}
@@ -3075,13 +3075,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/bugs/name/common-butterfly",
+							"raw": "{{URL}}/names/bugs/common-butterfly",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
+								"names",
 								"bugs",
-								"name",
 								"common-butterfly"
 							]
 						}
@@ -3112,13 +3112,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/fish/name/bitterling",
+							"raw": "{{URL}}/names/fish/bitterling",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
+								"names",
 								"fish",
-								"name",
 								"bitterling"
 							]
 						}
@@ -3149,13 +3149,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/sea/name/seaweed",
+							"raw": "{{URL}}/names/sea/seaweed",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
+								"names",
 								"sea",
-								"name",
 								"seaweed"
 							]
 						}
