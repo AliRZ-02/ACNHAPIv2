@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - testing
 jobs:
   test-api:
     runs-on: ubuntu-latest

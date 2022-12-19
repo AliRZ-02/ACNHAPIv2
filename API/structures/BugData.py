@@ -1,6 +1,6 @@
 from API.structures.CreatureData import CreatureData
 from API.helpers.request.request import SearchInput
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Tuple, Union
 from API.helpers.constants import LEAVING
 from aiohttp import ClientSession
 
@@ -54,13 +54,13 @@ class BugData(CreatureData):
 
         return "10-2" if super().name__() in ["common bluebottle", "jewel beetle"] else super().get_smonth()
 
-    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[str]:
+    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[Tuple[str, str]]:
         """Method to return a tweet string condensing the current bug instance's data"""
 
         super().generate_tweet(month, hemisphere, mode)
         starter = f"{super().get_intention()} {super().get_name()}!"
 
         if super().isLeaving() and mode == LEAVING:
-            return f"{starter} Remember to catch one if you haven't already! {super().add_tags()}"
+            return (f"{starter} Remember to catch one if you haven't already! {super().add_tags()}", self.get_image_url("bugs"))
         else:
-            return f"{starter} It is {self.get_rarity()} and can be found {self.get_location()} {super().get_time()}. It can be sold for {super().get_price()} bells. {super().add_tags()}"
+            return (f"{starter} It is {self.get_rarity()} and can be found {self.get_location()} {super().get_time()}. It can be sold for {super().get_price()} bells. {super().add_tags()}", self.get_image_url("bugs"))

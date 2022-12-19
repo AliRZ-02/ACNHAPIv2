@@ -1,3 +1,4 @@
+from typing import Tuple
 from API.structures import BugData, FishData, SeaCreatureData, VillagerData, SearchOutput
 from API.helpers.request.request import SearchInput
 from aiohttp import ClientSession
@@ -25,7 +26,7 @@ async def generate_names_data(session: ClientSession, data: SearchInput) -> str:
     await output.initialize()
     return output.as_dict()
 
-async def generate_tweet(session: ClientSession, data: SearchInput, month: int, hemisphere: int, mode: int) -> str:
+async def generate_tweet(session: ClientSession, data: SearchInput, month: int, hemisphere: int, mode: int) -> Tuple[str, str]:
     """ASYNC --- Function to condense the data collected into a tweet"""
     
     output = get_output_object(session, data)

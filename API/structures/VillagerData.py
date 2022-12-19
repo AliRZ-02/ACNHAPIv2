@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Tuple, Union
 from API.structures.SearchOutput import SearchOutput
 from API.structures.NameData import NameData, CatchTranslationData
 from API.structures.Date import Date
@@ -125,8 +125,8 @@ class VillagerData(SearchOutput):
     def get_catch_phrase(self):
         return self.catch_phrase.upper()
     
-    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[str]:
+    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[Tuple[str, str]]:
         """Method to generate instance data as a condensed tweet"""
         
         super().generate_tweet(month, hemisphere, mode)
-        return f"{self.get_catch_phrase()}! Happy Birthday to this {self.get_personality()} {self.get_species()}, {self.name.USen}. Remember to visit {self.get_pronoun()} birthday party and to bring a special gift! {super().add_tags()}"
+        return (f"{self.get_catch_phrase()}! Happy Birthday to this {self.get_personality()} {self.get_species()}, {self.name.USen}. Remember to visit {self.get_pronoun()} birthday party and to bring a special gift! {super().add_tags()}", self.get_image_url("villagers"))

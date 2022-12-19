@@ -1,7 +1,7 @@
 from API.structures.CreatureData import CreatureData
 from API.helpers.request.request import SearchInput
 from API.helpers.constants import LEAVING
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Tuple, Union
 from aiohttp import ClientSession
 from re import findall
 
@@ -71,15 +71,15 @@ class FishData(CreatureData):
         
         return f'in {location}'
     
-    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[str]:
+    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[Tuple[str, str]]:
         """Method to return instance data condensed into a tweet"""
         
         super().generate_tweet(month, hemisphere, mode)
         starter = f"{super().get_intention()} {super().get_name()}!"
 
         if super().isLeaving() and mode == LEAVING:
-            return f"{starter} Remember to catch one if you haven't already! {super().add_tags()}"
+            return (f"{starter} Remember to catch one if you haven't already! {super().add_tags()}", self.get_image_url("fish"))
         else:
-            return f"{starter} It is {self.get_rarity()} and can be found {self.get_location()} {super().get_time()}. It can be sold for {super().get_price()} bells and it has a {self.get_shadow()}. {super().add_tags()}"
+            return (f"{starter} It is {self.get_rarity()} and can be found {self.get_location()} {super().get_time()}. It can be sold for {super().get_price()} bells and it has a {self.get_shadow()}. {super().add_tags()}", self.get_image_url("fish"))
 
 

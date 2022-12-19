@@ -1,7 +1,10 @@
+import os
+from fastapi import responses
+
 from re import findall
 from aiohttp import ClientSession
 from datetime import datetime, timedelta
-from typing import Any, Coroutine, Dict, Iterable, List
+from typing import Any, Coroutine, Dict, Iterable, List, Tuple
 
 from API.structures import Date
 from API.helpers.constants import ACNH_TWEET_DATA, ACNH_NAMES_DATA, ACNH_VILLAGER_DATA, ACNH_CREATURE_DATA, NORTH, SOUTH, JOINING, LEAVING
@@ -164,7 +167,7 @@ async def get_data_by_name(name: str, type: str):
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------
 # Return Tweet Data
-async def get_tweets(date: Date, hemispheresWanted=None) -> List[str]:
+async def get_tweets(date: Date, hemispheresWanted=None) -> List[Tuple[str, str]]:
     if hemispheresWanted is None:
         hemispheresWanted = [NORTH, SOUTH]
 
@@ -179,3 +182,11 @@ async def get_tweets(date: Date, hemispheresWanted=None) -> List[str]:
                     tweets.append(await generate_tweet(session, SearchInput(group.replace(hemisphereString, ''), id), date.month, hemisphere, mode))
     
     return tweets
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------
+# Get Images
+def get_images_from_filename(filepath: str):
+    if os.path.exists(filepath):
+        return responses.FileResponse(filepath)
+    else:
+        raise Exception()

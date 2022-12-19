@@ -1,5 +1,6 @@
-from API.views import tweets, range, villagers, traits
+from API.views import tweets, range, villagers, traits, images
 from API import DESCRIPTION, TAGS_METADATA
+from fastapi.responses import FileResponse
 from fastapi import FastAPI
 
 # Server Object
@@ -16,6 +17,13 @@ server = FastAPI(
     docs_url=None
 )
 
+favicon_path = './API/static/Images/misc/BotProfilePicture.png'
+
+@server.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse(favicon_path)
+
+server.include_router(images.router, prefix="/images", tags=["Image Endpoints"])
 server.include_router(villagers.router, prefix="/villagers", tags=["Villager Data Endpoints"])
 server.include_router(tweets.router, prefix="/tweets", tags=["Tweet Endpoints"])
 server.include_router(range.router, prefix="/range")

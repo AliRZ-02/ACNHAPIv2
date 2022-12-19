@@ -1,5 +1,5 @@
 from API.helpers.request.request import SearchInput
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Tuple, Union
 from aiohttp import ClientSession
 
 # Parent Class for Data Output
@@ -13,7 +13,7 @@ class SearchOutput:
 
         return await self.data.get_data_request(self.session)
     
-    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[str]:
+    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[Tuple[str, str]]:
         """Method to set instance data that is used for tweets"""
 
         self.month: int = month
@@ -32,3 +32,6 @@ class SearchOutput:
         """Method to add hashtags to a tweet"""
 
         return "#AnimalCrossing #NewHorizons"
+
+    def get_image_url(self, url_type: str) -> str:
+        return f"/images/{url_type}/{self.id}"

@@ -17,9 +17,9 @@ async def return_tweets_today():
     """
     try:
         today = Date(dateObj=datetime.today())
-        return generate_output("tweets", await get_tweets(today), today)
-    except Exception as e:
-        print(traceback.format_exc())
+        data = await get_tweets(today)
+        return generate_output("tweets", [{"tweet": item[0], "url": item[1]} for item in data], today)
+    except:
         raise HTTPException(status_code=ERROR, detail=f"Error in generating today's tweets")
 
 @router.get("/today/villagers", status_code=SUCCESS)
@@ -34,8 +34,8 @@ async def return_villager_tweets_today():
     """
     try:
         today = Date(dateObj=datetime.today())
-        data = list(filter(get_filter_fn("villagers"), await get_tweets(today)))
-        return generate_output("tweets", data, today, page_size=None, page=None, params=None)
+        data = list(filter(lambda x: get_filter_fn("villagers")(x[0]), await get_tweets(today)))
+        return generate_output("tweets", [{"tweet": item[0], "url": item[1]} for item in data], today, page_size=None, page=None, params=None)
     except:
         raise HTTPException(status_code=ERROR, detail=f"Error in generating tweets for type '{type}' on day '{id}'")
 
@@ -54,7 +54,8 @@ async def return_hemisphere_tweets_today(hemisphere: str):
     try:
         fn = lambda tweet: not get_filter_fn("villagers")(tweet)
         today = Date(dateObj=datetime.today())
-        return generate_output("tweets", list(filter(fn, await get_tweets(today, hemispheresWanted))), today)
+        data = list(filter(lambda x: fn(x[0]), await get_tweets(today, hemispheresWanted)))
+        return generate_output("tweets", [{"tweet": item[0], "url": item[1]} for item in data], today)
     except:
         raise HTTPException(status_code=ERROR, detail=f"Error in generating today's tweets")
 
@@ -72,7 +73,8 @@ async def return_tweets_by_id(id: int):
     try:
         if int(id) <= MAX_DATE and int(id) >= MIN_DATE:
             date = Date(dateObj=get_date_from_id(int(id)))
-            return generate_output("tweets", await get_tweets(date), date, page_size=None, page=None, params={"id": id})
+            data = await get_tweets(date)
+            return generate_output("tweets", [{"tweet": item[0], "url": item[1]} for item in data], date, page_size=None, page=None, params={"id": id})
         else:
             raise Exception()
     except:
@@ -94,8 +96,8 @@ async def return_tweets_by_type(type: str, id: str):
     try:
         if type.lower() in ["bugs", "fish", "sea", "villagers"]:
             date = Date(dateObj=get_date_from_id(int(id)))
-            tweets = list(filter(get_filter_fn(type), await get_tweets(date)))
-            return generate_output("tweets", tweets, date, page_size=None, page=None, params={"type": type, "id": id})
+            tweets = list(filter(lambda x: get_filter_fn(type)(x[0]), await get_tweets(date)))
+            return generate_output("tweets", [{"tweet": item[0], "url": item[1]} for item in tweets], date, page_size=None, page=None, params={"type": type, "id": id})
         else:
             raise Exception()
     except:

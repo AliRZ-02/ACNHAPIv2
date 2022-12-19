@@ -1,7 +1,7 @@
 from API.structures.CreatureData import CreatureData
 from API.helpers.request.request import SearchInput
 from API.helpers.constants import LEAVING
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Tuple, Union
 from aiohttp import ClientSession
 
 class SeaCreatureData(CreatureData):
@@ -68,13 +68,13 @@ class SeaCreatureData(CreatureData):
         else:
             return shadow
     
-    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[str]:
+    def generate_tweet(self, month: int, hemisphere: int, mode: int) -> Optional[Tuple[str, str]]:
         """Method to return instance data as a condensed tweet"""
         
         super().generate_tweet(month, hemisphere, mode)
         starter = f"{super().get_intention().replace('this month is the', 'this month are the')} {self.get_name()}!"
 
         if super().isLeaving() and mode == LEAVING:
-            return f"{starter} Remember to catch one if you haven't already! {super().add_tags()}"
+            return (f"{starter} Remember to catch one if you haven't already! {super().add_tags()}", self.get_image_url("sea"))
         else:
-            return f"{starter} They are {self.get_speed()} creatures with a {self.get_shadow()} shadow. They can be found {super().get_time()} and can be sold for {super().get_price()} bells. {super().add_tags()}"
+            return (f"{starter} They are {self.get_speed()} creatures with a {self.get_shadow()} shadow. They can be found {super().get_time()} and can be sold for {super().get_price()} bells. {super().add_tags()}", self.get_image_url("sea"))

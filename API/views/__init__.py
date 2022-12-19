@@ -23,5 +23,9 @@ TAGS_METADATA = [
      {
         "name": "Name Search Endpoints",
         "description": "Endpoint to search creatures and villagers by their names"
+     },
+     {
+      "name": "Image Endpoints",
+      "description": "Endpoints to return images based on object type"
      }
 ]
