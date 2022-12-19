@@ -12,7 +12,7 @@ jobs:
       - name: Node Installation
         uses: actions/setup-node@v1
         with: 
-          node-version: "12.x"
+          node-version: "16.x"
       
       - name: Docker Installation
         run: docker-compose -f config/docker-compose.yml up --detach
